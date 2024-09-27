@@ -4,6 +4,10 @@ public class MyArrays {
     int [] testArray1 = new int[]{1, 2, 3};
     System.out.println(arrayToString(testArray1));
 
+    //test cases for returnCopy
+
+    //test cases for concatArray
+
 
   }
   public static String arrayToString (int[] nums) {
