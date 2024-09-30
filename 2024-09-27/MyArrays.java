@@ -35,6 +35,13 @@ public class MyArrays {
     System.out.println("array 2 : " + arrayToString(array2));
     System.out.println("combined array : " + arrayToString(array3));
 
+    array1 = new int[]{0, 1, 2, 3};
+    array2 = new int[]{0, 1};
+    array3 = concatArray(array1, array2);
+    System.out.println("array 1 : " + arrayToString(array1));
+    System.out.println("array 2 : " + arrayToString(array2));
+    System.out.println("combined array : " + arrayToString(array3));
+
 
   }
   public static String arrayToString (int[] nums) {
@@ -55,9 +62,19 @@ public class MyArrays {
     }
     return newAry;
   }
-  
+
   public static int[] concatArray (int[] ary1, int[] ary2) {
-    return ary1;
+    int[] newAry = new int[ary1.length + ary2.length];
+    for(int i = 0; i < ary1.length + ary2.length; i++) {
+      if (i < ary1.length) {
+        newAry[i] = ary1[i];
+      }
+      else {
+        newAry[i] = ary2[i - ary1.length];
+      }
+      
+    }
+    return newAry;
   }
 
 
