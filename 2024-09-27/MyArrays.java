@@ -27,8 +27,13 @@ public class MyArrays {
     original[0] = 1; 
     System.out.println("are the arrays the same? " + (original[0] == copy[0]));
 
-
     //test cases for concatArray
+    int [] array1 = new int[]{1, 3, 5, 7};
+    int [] array2 = new int[]{2, 4, 6, 8};
+    int [] array3 = concatArray(array1, array2);
+    System.out.println("array 1 : " + arrayToString(array1));
+    System.out.println("array 2 : " + arrayToString(array2));
+    System.out.println("combined array : " + arrayToString(array3));
 
 
   }
@@ -42,13 +47,17 @@ public class MyArrays {
     }
     return result + "]";
   }
-  
+
   public static int[] returnCopy(int[] ary) {
     int[] newAry = new int[ary.length];
     for (int i = 0; i < ary.length; i++) {
       newAry[i] = ary[i];
     }
     return newAry;
+  }
+  
+  public static int[] concatArray (int[] ary1, int[] ary2) {
+    return ary1;
   }
 
 
