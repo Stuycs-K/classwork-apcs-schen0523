@@ -42,8 +42,13 @@ public class MyArrays {
     }
     return result + "]";
   }
+  
   public static int[] returnCopy(int[] ary) {
-    return ary;
+    int[] newAry = new int[ary.length];
+    for (int i = 0; i < ary.length; i++) {
+      newAry[i] = ary[i];
+    }
+    return newAry;
   }
 
 
