@@ -12,6 +12,7 @@ public class ArrayMethods {
     String result = "[";
     for (int i = 0; i < ary.length; i++) {
       result += ary[i];
+      
       if (i < ary.length - 1) {
         result += ", ";
       }
@@ -87,7 +88,22 @@ public class ArrayMethods {
     System.out.println("result: " + arrToString(testArray));
 
     //arr2DSum test cases
-    //testArray = ;
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    System.out.println("expected: 45");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6}, {7, 8, 9}};
+    System.out.println("expected: 45");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
+    System.out.println("expected: 36");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[2][4];
+    System.out.println("expected: 0");
+    System.out.println("result: " + arr2DSum(testArray));
+
   }
 
 }
