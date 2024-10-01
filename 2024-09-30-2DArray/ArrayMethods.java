@@ -62,7 +62,13 @@ public class ArrayMethods {
     * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   */
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int [][] result = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums[0].length; i++) {
+      for (int j = 0; j < nums.length; j++) {
+        result[i][j] = nums[j][i];
+      }
+    }
+    return result;
   }
 
   public static void main(String[] args) {
@@ -103,6 +109,15 @@ public class ArrayMethods {
     testArray = new int[2][4];
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
+
+    //arr2DSum test cases
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    System.out.println("expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]");
+    System.out.println("result: " + arrToString(swapRC(testArray)));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
+    System.out.println("expected: [[1, 5], [2, 6], [3, 7], [4, 8]]");
+    System.out.println("result: " + arrToString(swapRC(testArray)));
 
   }
 
