@@ -12,7 +12,7 @@ public class ArrayMethods {
     String result = "[";
     for (int i = 0; i < ary.length; i++) {
       result += ary[i];
-      
+
       if (i < ary.length - 1) {
         result += ", ";
       }
@@ -70,6 +70,33 @@ public class ArrayMethods {
     }
     return result;
   }
+  //3. Modify a given 2D array of integer as follows:
+  //Replace all the negative values:
+  //-When the row number is the same as the column number replace
+  //that negative with the value 1
+  //-All other negatives replace with 0
+  public static void replaceNegative(int[][] vals){
+    for(int i = 0; i < vals.length; i++) {
+      for (int j = 0; j < vals[i].length; j ++) {
+        if (vals[i][j] < 0 && i == j) {
+          vals[i][j] = 1;
+        }
+        else if (vals[i][j] < 0) {
+          vals[i][j] = 0;
+        }
+      }
+    }
+
+  }
+
+  //4. Make a copy of the given 2d array.
+  //When testing : make sure that changing the original does NOT change the copy.
+  //DO NOT use any built in methods that "copy" an array.
+  //You SHOULD write a helper method for this.
+  //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int[][] copy(int[][] nums){
+    return null;//placeholder so it compiles
+  }
 
   public static void main(String[] args) {
     //arrToString for 2D arrays test cases
@@ -118,6 +145,12 @@ public class ArrayMethods {
     testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
     System.out.println("expected: [[1, 5], [2, 6], [3, 7], [4, 8]]");
     System.out.println("result: " + arrToString(swapRC(testArray)));
+
+    //replaceNegative test cases
+    testArray = new int[][] {{1, -2, 3}, {4, -5, 6}, {7, -8, 9}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1, 0, 3], [4, 1, 6], [7, 0, 9]]");
+    System.out.println("result: " + arrToString(testArray));
 
   }
 
