@@ -7,17 +7,21 @@ public class ArrayDemo{
     //do not use any other Arrays.method()
 
     //testing my arrayToString
-    /*int[][] testArray = new int[2][4];
-    System.out.println("expected: " + deepToString(testArray));
-    System.out.println("result: " + arrToString(testArray));*/
-
-    int[] testArray = new int[2];
-    System.out.println("expected: " + Arrays.toString(testArray));
+    int[][] testArray = new int[2][4];
+    System.out.println("expected: " + Arrays.deepToString(testArray));
     System.out.println("result: " + arrToString(testArray));
 
-    testArray = new int[] {1, 2, 3, 4};
-    System.out.println("expected: " + Arrays.toString(testArray));
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}};
+    System.out.println("expected: " + Arrays.deepToString(testArray));
     System.out.println("result: " + arrToString(testArray));
+
+    int[] testArray1 = new int[2];
+    System.out.println("expected: " + Arrays.toString(testArray1));
+    System.out.println("result: " + arrToString(testArray1));
+
+    testArray1 = new int[] {1, 2, 3, 4};
+    System.out.println("expected: " + Arrays.toString(testArray1));
+    System.out.println("result: " + arrToString(testArray1));
 
   }
 
