@@ -82,7 +82,8 @@ public class ArrayMethods {
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
     for(int i = 0; i < vals.length; i++) {
-      for (int j = 0; j < vals[i].length; j ++) {
+      if (vals[i] != null) {
+        for (int j = 0; j < vals[i].length; j ++) {
         if (vals[i][j] < 0 && i == j) {
           vals[i][j] = 1;
         }
@@ -90,6 +91,8 @@ public class ArrayMethods {
           vals[i][j] = 0;
         }
       }
+      }
+      
     }
 
   }
@@ -174,6 +177,11 @@ public class ArrayMethods {
     testArray = new int[][] {{1, -2, 3, 4}, {-5, -6, 7, -8}};
     replaceNegative(testArray);
     System.out.println("expected: [[1, 0, 3, 4], [0, 1, 7, 0]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[2][];
+    replaceNegative(testArray);
+    System.out.println("expected: [null, null]");
     System.out.println("result: " + arrToString(testArray));
 
   }
