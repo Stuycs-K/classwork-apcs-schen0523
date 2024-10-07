@@ -105,8 +105,11 @@ public class ArrayMethods {
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    
-    return null;//placeholder so it compiles
+    int[][] newAry = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++) {
+      newAry[i] = copy(nums[i]);
+    }
+    return newAry;//placeholder so it compiles
   }
   //helper method, returns copy of a 1d array
   public static int[] copy(int[] ary) {
@@ -125,7 +128,7 @@ public class ArrayMethods {
     System.out.println("expected: [[0, 0], [0, 0, 0, 0]]");
     System.out.println("result: " + arrToString(testArray));
 
-    testArray = new int[][] {{}, {}};
+    testArray = new int[2][0];
     System.out.println("expected: [[], []]");
     System.out.println("result: " + arrToString(testArray));
 
@@ -158,7 +161,7 @@ public class ArrayMethods {
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
 
-    testArray = new int[][] {{}, {}};
+    testArray = new int[2][0];
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
 
@@ -192,16 +195,34 @@ public class ArrayMethods {
     System.out.println("expected: [[1, 0, 3, 4], [0, 1, 7, 0]]");
     System.out.println("result: " + arrToString(testArray));
 
-    testArray = new int[][] {{}, {}};
+    testArray = new int[2][0];
     replaceNegative(testArray);
-    System.out.println("expected: [[]], []]]");
+    System.out.println("expected: [[]], []]");
     System.out.println("result: " + arrToString(testArray));
 
     //copy test cases
-    int[] original = new int[] {};
+    int [][] original = new int[][]{{0, 1, 2}, {3, 4, 5}};
     System.out.println("original array: " + arrToString(original));
-    int[] newcopy = copy(original);
+    int [][] newcopy = copy(original);
     System.out.println("copy array: " + arrToString(newcopy));
+    //checking to see if the values in the arrays match
+    boolean result = true;
+    for(int i = 0; i < original.length; i++) {
+      for (int j = 0; j < original[i].length; j++) {
+        if (original[i][j] != newcopy[i][j]) {
+          result = false;
+          i = original.length;
+          System.out.println("are the values the same? no");
+        }
+      }
+    }
+    if (result) {
+      System.out.println("are the values the same? yes");
+    }
+    //modify one array to see if the other one changes as well
+    original[0][0] = 1; 
+    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0]));
+    
 
   }
 
