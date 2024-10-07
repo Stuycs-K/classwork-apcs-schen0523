@@ -50,9 +50,14 @@ public class ArrayMethods {
     //use a nested loop to solve this
     int sum = 0;
     for (int i = 0; i < nums.length; i++) {
-      for (int j = 0; j < nums[i].length; j++) {
+      if (nums[i] == null) {
+          sum += 0;
+        }
+        else {
+          for (int j = 0; j < nums[i].length; j++) {
         sum += nums[i][j];
       }
+        }
     }
     return sum;//place holder return value so it compiles.
   }
@@ -137,7 +142,11 @@ public class ArrayMethods {
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
 
-    //arr2DSum test cases
+    testArray = new int[2][];
+    System.out.println("expected: 0");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    //swapRC test cases
     testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     System.out.println("expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]");
     System.out.println("result: " + arrToString(swapRC(testArray)));
