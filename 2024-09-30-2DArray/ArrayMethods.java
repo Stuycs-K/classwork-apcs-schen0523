@@ -148,7 +148,7 @@ public class ArrayMethods {
 
     //swapRC test cases
     testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    System.out.println("expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]");
+    System.out.println("expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]");
     System.out.println("result: " + arrToString(swapRC(testArray)));
 
     testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
@@ -156,9 +156,24 @@ public class ArrayMethods {
     System.out.println("result: " + arrToString(swapRC(testArray)));
 
     //replaceNegative test cases
-    testArray = new int[][] {{1, -2, 3}, {4, -5, 6}, {7, -8, 9}};
+    testArray = new int[][] {{1, -2, 3}, {4, -5, 6}, {7, -8, -9}};
     replaceNegative(testArray);
-    System.out.println("expected: [[1, 0, 3], [4, 1, 6], [7, 0, 9]]");
+    System.out.println("expected: [[1, 0, 3], [4, 1, 6], [7, 0, 1]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[][] {{-1}, {-4, -5}, {-7, -8, -9}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1], [0, 1], [0, 0, 1]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[][] {{1, -2, 3, 4}, {-5, -6, 7, -8}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1, 0, 3, 4], [0, 1, 7, 0]]");
     System.out.println("result: " + arrToString(testArray));
 
   }
