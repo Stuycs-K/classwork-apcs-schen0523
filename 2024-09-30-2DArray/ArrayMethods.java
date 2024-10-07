@@ -10,6 +10,9 @@ public class ArrayMethods {
 */
   public static String arrToString(int[]ary){
     String result = "[";
+    if (ary.length == 0) {
+      return "[]";
+    }
     for (int i = 0; i < ary.length; i++) {
       result += ary[i];
 
@@ -32,8 +35,8 @@ public class ArrayMethods {
     //this should use arrToString(int[])
     String result = "[";
     for (int i = 0; i < ary.length; i++) {
-      if (ary[i] == null) {
-        result += "null";
+      if (ary[i].length == 0) {
+        result += "[]";
       }
       else {
       result += arrToString(ary[i]);
@@ -50,13 +53,13 @@ public class ArrayMethods {
     //use a nested loop to solve this
     int sum = 0;
     for (int i = 0; i < nums.length; i++) {
-      if (nums[i] == null) {
+      if (nums[i].length == 0) {
           sum += 0;
         }
-        else {
+      else {
           for (int j = 0; j < nums[i].length; j++) {
-        sum += nums[i][j];
-      }
+            sum += nums[i][j];
+          }
         }
     }
     return sum;//place holder return value so it compiles.
@@ -82,17 +85,16 @@ public class ArrayMethods {
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
     for(int i = 0; i < vals.length; i++) {
-      if (vals[i] != null) {
+      if (vals[i].length != 0) {
         for (int j = 0; j < vals[i].length; j ++) {
-        if (vals[i][j] < 0 && i == j) {
-          vals[i][j] = 1;
-        }
-        else if (vals[i][j] < 0) {
-          vals[i][j] = 0;
+          if (vals[i][j] < 0 && i == j) {
+            vals[i][j] = 1;
+          }
+          else if (vals[i][j] < 0) {
+            vals[i][j] = 0;
+          }
         }
       }
-      }
-      
     }
 
   }
@@ -103,7 +105,18 @@ public class ArrayMethods {
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
+    
     return null;//placeholder so it compiles
+  }
+  //helper method, returns copy of a 1d array
+  public static int[] copy(int[] ary) {
+    int[] newAry = new int[ary.length];
+    if (ary.length != 0) {
+      for (int i = 0; i < ary.length; i++) {
+        newAry[i] = ary[i];
+      }
+    }
+    return newAry;
   }
 
   public static void main(String[] args) {
@@ -112,8 +125,8 @@ public class ArrayMethods {
     System.out.println("expected: [[0, 0], [0, 0, 0, 0]]");
     System.out.println("result: " + arrToString(testArray));
 
-    testArray = new int[2][];
-    System.out.println("expected: [null, null]");
+    testArray = new int[][] {{}, {}};
+    System.out.println("expected: [[], []]");
     System.out.println("result: " + arrToString(testArray));
 
     testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
@@ -145,7 +158,7 @@ public class ArrayMethods {
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
 
-    testArray = new int[2][];
+    testArray = new int[][] {{}, {}};
     System.out.println("expected: 0");
     System.out.println("result: " + arr2DSum(testArray));
 
@@ -179,10 +192,16 @@ public class ArrayMethods {
     System.out.println("expected: [[1, 0, 3, 4], [0, 1, 7, 0]]");
     System.out.println("result: " + arrToString(testArray));
 
-    testArray = new int[2][];
+    testArray = new int[][] {{}, {}};
     replaceNegative(testArray);
-    System.out.println("expected: [null, null]");
+    System.out.println("expected: [[]], []]]");
     System.out.println("result: " + arrToString(testArray));
+
+    //copy test cases
+    int[] original = new int[] {};
+    System.out.println("original array: " + arrToString(original));
+    int[] newcopy = copy(original);
+    System.out.println("copy array: " + arrToString(newcopy));
 
   }
 
