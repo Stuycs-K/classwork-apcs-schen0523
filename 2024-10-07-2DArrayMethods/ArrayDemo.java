@@ -6,7 +6,7 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
 
-    //testing my arrayToString
+    //testing my arrayToString (2d arrays)
     int[][] testArray = new int[2][4];
     System.out.println("expected: " + Arrays.deepToString(testArray));
     System.out.println("result: " + arrToString(testArray));
@@ -15,6 +15,7 @@ public class ArrayDemo{
     System.out.println("expected: " + Arrays.deepToString(testArray));
     System.out.println("result: " + arrToString(testArray));
 
+    //testing my arrayToString (1d arrays)
     int[] testArray1 = new int[2];
     System.out.println("expected: " + Arrays.toString(testArray1));
     System.out.println("result: " + arrToString(testArray1));
@@ -62,7 +63,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = 0; j < nums[i].length; j++) [
+        if (nums[i][j] == 0 ) {
+          count++;
+        }
+      ]
+    }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
