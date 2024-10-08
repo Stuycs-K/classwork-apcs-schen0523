@@ -37,6 +37,16 @@ public class ArrayDemo{
     System.out.println("expected: 3");
     System.out.println("result: " + countZeros2D(testArray));
 
+    //test cases for arr2DSum
+
+    //test cases for replaceNegative
+
+    //test cases for copy
+
+    //test cases for swapRC
+
+    //test cases for htmlTable
+
 
 
   }
