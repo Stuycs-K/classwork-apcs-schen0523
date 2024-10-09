@@ -80,6 +80,72 @@ public class ArrayDemo{
     System.out.println("result: " + arrToString(testArray));
 
     //test cases for copy
+    int [][] original = new int[][]{{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
+    System.out.println("original array: " + arrToString(original));
+    int [][] newcopy = copy(original);
+    System.out.println("copy array: " + arrToString(newcopy));
+    //checking to see if the values in the arrays match
+    boolean result = true;
+    for(int i = 0; i < original.length; i++) {
+      for (int j = 0; j < original[i].length; j++) {
+        if (original[i][j] != newcopy[i][j]) {
+          result = false;
+          i = original.length;
+          System.out.println("are the values the same? no");
+        }
+      }
+    }
+    if (result) {
+      System.out.println("are the values the same? yes");
+    }
+    //modify one array to see if the other one changes as well
+    original[0][0] = 1; 
+    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0]));
+
+    original = new int[][]{{0, 1, 2, 4}, {3, 4, 5, 6}};
+    System.out.println("original array: " + arrToString(original));
+    newcopy = copy(original);
+    System.out.println("copy array: " + arrToString(newcopy));
+    //checking to see if the values in the arrays match
+    result = true;
+    for(int i = 0; i < original.length; i++) {
+      for (int j = 0; j < original[i].length; j++) {
+        if (original[i][j] != newcopy[i][j]) {
+          result = false;
+          i = original.length;
+          System.out.println("are the values the same? no");
+        }
+      }
+    }
+    if (result) {
+      System.out.println("are the values the same? yes");
+    }
+    //modify one array to see if the other one changes as well
+    original[0][0] = 1; 
+    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0]));
+
+    original = new int[][]{{0}, {1, 2, 4}, {3, 4, 5, 6}};
+    System.out.println("original array: " + arrToString(original));
+    newcopy = copy(original);
+    System.out.println("copy array: " + arrToString(newcopy));
+    //checking to see if the values in the arrays match
+    result = true;
+    for(int i = 0; i < original.length; i++) {
+      for (int j = 0; j < original[i].length; j++) {
+        if (original[i][j] != newcopy[i][j]) {
+          result = false;
+          i = original.length;
+          System.out.println("are the values the same? no");
+        }
+      }
+    }
+    if (result) {
+      System.out.println("are the values the same? yes");
+    }
+    //modify one array to see if the other one changes as well
+    original[0][0] = 1; 
+    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0]));
+    
 
     //test cases for swapRC
 
@@ -181,7 +247,23 @@ public class ArrayDemo{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    return new int[1][1];
+    int[][] newAry = new int[nums.length][];
+    if (nums.length != 0) {
+      for (int i = 0; i < nums.length; i++) {
+        newAry[i] = copy(nums[i]);
+      }
+    }
+    return newAry;
+  }
+  //helper method, returns copy of a 1d array
+  public static int[] copy(int[] ary) {
+    int[] newAry = new int[ary.length];
+    if (ary.length != 0) {
+      for (int i = 0; i < ary.length; i++) {
+        newAry[i] = ary[i];
+      }
+    }
+    return newAry;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
