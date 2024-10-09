@@ -171,7 +171,7 @@ public class ArrayDemo{
     System.out.println("do the results match? " + (expected.equals(htmlTable(testArray))));
 
     testArray = new int[][] {{0}, {0, 1}, {0, 1, 2}};
-    expected = "<table><tr><td>0</td></tr><tr><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>2</td></tr></table>";
+    expected = "<table><tr><td>0</td></tr><tr><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>2h</td></tr></table>";
     System.out.println("expected: " + expected);
     System.out.println("result: " + htmlTable(testArray));
     System.out.println("do the results match? " + (expected.equals(htmlTable(testArray))));
