@@ -38,6 +38,25 @@ public class ArrayDemo{
     System.out.println("result: " + countZeros2D(testArray));
 
     //test cases for arr2DSum
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    System.out.println("expected: 45");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6}, {7, 8, 9}};
+    System.out.println("expected: 45");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
+    System.out.println("expected: 36");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[2][4];
+    System.out.println("expected: 0");
+    System.out.println("result: " + arr2DSum(testArray));
+
+    testArray = new int[2][0];
+    System.out.println("expected: 0");
+    System.out.println("result: " + arr2DSum(testArray));
 
     //test cases for replaceNegative
 
