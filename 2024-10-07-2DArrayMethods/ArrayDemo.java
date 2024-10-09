@@ -144,10 +144,16 @@ public class ArrayDemo{
     }
     //modify one array to see if the other one changes as well
     original[0][0] = 1; 
-    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0]));
-    
+    System.out.println("are the arrays the same? " + (original[0][0] == newcopy[0][0])); 
 
     //test cases for swapRC
+    testArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    System.out.println("expected: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]");
+    System.out.println("result: " + arrToString(swapRC(testArray)));
+
+    testArray = new int[][] {{1, 2, 3, 4}, {5, 6, 7, 8}};
+    System.out.println("expected: [[1, 5], [2, 6], [3, 7], [4, 8]]");
+    System.out.println("result: " + arrToString(swapRC(testArray)));
 
     //test cases for htmlTable
 
@@ -270,7 +276,13 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int [][] result = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums[0].length; i++) {
+      for (int j = 0; j < nums.length; j++) {
+        result[i][j] = nums[j][i];
+      }
+    }
+    return result;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
