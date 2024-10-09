@@ -156,8 +156,6 @@ public class ArrayDemo{
     System.out.println("result: " + arrToString(swapRC(testArray)));
 
     //test cases for htmlTable
-    //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
-  // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
     testArray = new int[][] {{1, 2}, {3, 4}};
     String expected = "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table>";
     System.out.println("expected: " + expected);
@@ -171,7 +169,7 @@ public class ArrayDemo{
     System.out.println("do the results match? " + (expected.equals(htmlTable(testArray))));
 
     testArray = new int[][] {{0}, {0, 1}, {0, 1, 2}};
-    expected = "<table><tr><td>0</td></tr><tr><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>2h</td></tr></table>";
+    expected = "<table><tr><td>0</td></tr><tr><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>2</td></tr></table>";
     System.out.println("expected: " + expected);
     System.out.println("result: " + htmlTable(testArray));
     System.out.println("do the results match? " + (expected.equals(htmlTable(testArray))));
@@ -311,6 +309,16 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String result = "<table>";
+    for (int i = 0; i < nums.length; i++) {
+      result += "<tr>";
+      for (int j = 0; j < nums[i].length; j++) {
+        result += "<td>";
+        result += nums[i][j];
+        result += "</td>";
+      }
+      result += "</tr>";
+    }
+    return result + "</table>";
   }
 }
