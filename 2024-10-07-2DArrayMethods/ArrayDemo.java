@@ -173,9 +173,6 @@ public class ArrayDemo{
     System.out.println("expected: " + expected);
     System.out.println("result: " + htmlTable(testArray));
     System.out.println("do the results match? " + (expected.equals(htmlTable(testArray))));
-
-
-
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
