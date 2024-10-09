@@ -59,6 +59,25 @@ public class ArrayDemo{
     System.out.println("result: " + arr2DSum(testArray));
 
     //test cases for replaceNegative
+    testArray = new int[][] {{1, -2, 3}, {4, -5, 6}, {7, -8, -9}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1, 0, 3], [4, 1, 6], [7, 0, 1]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[][] {{-1}, {-4, -5}, {-7, -8, -9}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1], [0, 1], [0, 0, 1]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[][] {{1, -2, 3, 4}, {-5, -6, 7, -8}};
+    replaceNegative(testArray);
+    System.out.println("expected: [[1, 0, 3, 4], [0, 1, 7, 0]]");
+    System.out.println("result: " + arrToString(testArray));
+
+    testArray = new int[2][0];
+    replaceNegative(testArray);
+    System.out.println("expected: [[]], []]");
+    System.out.println("result: " + arrToString(testArray));
 
     //test cases for copy
 
