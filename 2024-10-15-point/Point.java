@@ -8,6 +8,8 @@ public class Point{
   //Initialize this Point to have the same values as the other Point.
   public Point(Point other){
     //COMPLETE THIS SECOND
+    x = other.getX();
+    y = other.getY();
     //Then write test cases.
   }
 
