@@ -24,5 +24,13 @@ public class Demo{
     System.out.println( distance(p3,p2));
     System.out.println( Point.distance(p3,p2));
     System.out.println( p3.distanceTo(p2));
+
+    //equilateral triangle
+    Point t1 = new Point (0,0);
+    Point t2 = new Point (1,0);
+    Point t3 = new Point (0.5 , Math.sqrt(3) / 2);
+    System.out.println( t1.distanceTo(t2));
+    System.out.println( t1.distanceTo(t3));
+    System.out.println( t2.distanceTo(t3));
   }
 }
