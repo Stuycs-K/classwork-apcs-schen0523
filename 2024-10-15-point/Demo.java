@@ -5,7 +5,9 @@ public class Demo{
   to the others.
   */
   public static double distance(Point a, Point b){
-    return 0.0;
+    double xDiff = a.getX() - b.getX();
+    double yDiff = a.getY() - b.getY();
+    return Math.sqrt((xDiff * xDiff) + (yDiff*yDiff)) ;
   }
 
   public static void main(String[]args){
