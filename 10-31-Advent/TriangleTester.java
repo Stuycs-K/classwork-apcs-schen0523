@@ -11,26 +11,30 @@ public class TriangleTester {
   public static int countTrianglesA(String filename) {
     int counter = 0;
     int x, y, z = 0;
-    File file = new File(filename);//1
-    Scanner input = new Scanner(filename);
-    while(input.hasNextLine()) {
-      x = input.nextInt();
-      y = input.nextInt();
-      z = input.nextInt();
-      if (isTri(x, y, z)) {
+    try {
+      File file = new File(filename);//1
+      Scanner input = new Scanner(file);
+
+      while(input.hasNextLine()) {
+        x = input.nextInt();
+        y = input.nextInt();
+        z = input.nextInt();
+        if (isTri(x, y, z)) {
           counter++;
+        }
       }
+      input.close();
+      return counter;
+    } catch (FileNotFoundException ex) {
+      System.out.println("File not found");
+      return 0; 
     }
-
-
-
-
-    input.close();
-    return counter;
+    
   }
-
+  
   public static boolean isTri(int a, int b, int c) {
     return (a + b > c && a + c > b && b + c > a);
   }
+    
 
 }
