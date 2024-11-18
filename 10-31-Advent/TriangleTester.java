@@ -6,7 +6,7 @@ public class TriangleTester {
   public static void main (String[] args) {
     //System.out.println(isTri(5, 5, 2));
     //System.out.println(countTrianglesA("inputTri.txt"));
-    System.out.println(countTrianglesA("inputTri.txt"));
+    System.out.println(countTrianglesB("inputTri.txt"));
   }
 
   public static int countTrianglesA(String filename) {
@@ -28,14 +28,14 @@ public class TriangleTester {
 
       input.close();
       return counter;
-    
+
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
-      return 0; 
+      return 0;
     }
-    
+
   }
-  
+
   public static boolean isTri(int a, int b, int c) {
     return (a + b > c && a + c > b && b + c > a);
   }
@@ -59,17 +59,23 @@ public class TriangleTester {
         z1 = input.nextInt();
         z2 = input.nextInt();
         z3 = input.nextInt();
-        if (isTri(x1, y1, z1) || isTri(x2, y2, z2) || isTri(x3, y3, z3)) {
+        if (isTri(x1, y1, z1)) {
+          counter++;
+        }
+        if (isTri(x2, y2, z2)) {
+          counter++;
+        }
+        if (isTri(x3, y3, z3)) {
           counter++;
         }
       }
 
       input.close();
       return counter;
-    
+
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
-      return 0; 
+      return 0;
     }
   }
 
