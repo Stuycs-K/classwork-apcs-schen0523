@@ -54,9 +54,6 @@ public class ArrayListPractice {
         return newArr;
 
   } 
-
-
-
   public static void main(String[] args) {
 
     //System.out.println(createRandomArray(200000));
