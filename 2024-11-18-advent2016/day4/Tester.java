@@ -9,33 +9,19 @@ public class Tester {
   }
 
   public static int getSum(String filename) {
-    
+    int sum = 0;
     try {
       File file = new File(filename);
       Scanner input = new Scanner(file);
 
       while(input.hasNextLine()) {
         current = input.nextLine();
-        position0.set(current.charAt(0) -'a', position0.get(current.charAt(0) -'a') + 1);
-        position1.set(current.charAt(1) -'a', position1.get(current.charAt(1) -'a') + 1);
-        position2.set(current.charAt(2) -'a', position2.get(current.charAt(2) -'a') + 1);
-        position3.set(current.charAt(3) -'a', position3.get(current.charAt(3) -'a') + 1);
-        position4.set(current.charAt(4) -'a', position4.get(current.charAt(4) -'a') + 1);
-        position5.set(current.charAt(5) -'a', position5.get(current.charAt(5) -'a') + 1);
-        //position6.set(current.charAt(6) -'a', position6.get(current.charAt(6) -'a') + 1);
-        //position7.set(current.charAt(7) -'a', position7.get(current.charAt(7) -'a') + 1);
-
+        if(isRealRoom(current)) {
+          sum += returnID(current);
+        }
       }
-      code += Character.toString(position0.indexOf(Largest(position0)) + 97);
-      code += Character.toString(position1.indexOf(Largest(position1)) + 97);
-      code += Character.toString(position2.indexOf(Largest(position2)) + 97);
-      code += Character.toString(position3.indexOf(Largest(position3)) + 97);
-      code += Character.toString(position4.indexOf(Largest(position4)) + 97);
-      code += Character.toString(position5.indexOf(Largest(position5)) + 97);
-      //code += Character.toString(position6.indexOf(Largest(position6)) + 97);
-      //code += Character.toString(position7.indexOf(Largest(position7)) + 97);
       input.close();
-      return code;
+      return sum;
 
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
@@ -54,6 +40,21 @@ public class Tester {
     String checksum = room.substring(room.indexOf("[") + 1, room.indexOf("]"));
     String name = room.substring(0, room.lastIndexOf("-"));
     ArrayList<Integer> occurence = zeroes(26);
+    String[] nameSplit = name.split("-");
+    for(int i = 0; i < nameSplit.length;i++) {
+      for (int j = 0; j < nameSplit[i].length(); j++) {
+        occurence.set(current.charAt(j) -'a', occurence.get(current.charAt(j) - 'a') + 1);
+      }
+    }
+    //check if the letters in checksum are the 5 most common letters
+    //create new int array containing the top 5 values of occurence
+    for(int k = 0; k < checksum.length(); k++) {
+      if (occurence.get(checksum.charAt(k) - 'a') not in newArray) {
+        return false;
+      }  //get ascii value -97 to get corresponding value in occurence
+    }
+    return true;
+
   }
 
   public static ArrayList<Integer> zeroes(int length) {
@@ -64,9 +65,9 @@ public class Tester {
     }
   }
 
- 
 
-  
+
+
 
 
 
