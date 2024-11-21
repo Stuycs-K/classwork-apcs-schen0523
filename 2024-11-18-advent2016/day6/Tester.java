@@ -41,8 +41,8 @@ public class Tester {
         position3.set(current.charAt(3) -'a', position3.get(current.charAt(3) -'a') + 1);
         position4.set(current.charAt(4) -'a', position4.get(current.charAt(4) -'a') + 1);
         position5.set(current.charAt(5) -'a', position5.get(current.charAt(5) -'a') + 1);
-        //position6.set(current.charAt(6) -'a', position6.get(current.charAt(6) -'a') + 1);
-        //position7.set(current.charAt(7) -'a', position7.get(current.charAt(7) -'a') + 1);
+        position6.set(current.charAt(6) -'a', position6.get(current.charAt(6) -'a') + 1);
+        position7.set(current.charAt(7) -'a', position7.get(current.charAt(7) -'a') + 1);
 
       }
       code += Character.toString(position0.indexOf(Largest(position0)) + 97);
@@ -51,8 +51,8 @@ public class Tester {
       code += Character.toString(position3.indexOf(Largest(position3)) + 97);
       code += Character.toString(position4.indexOf(Largest(position4)) + 97);
       code += Character.toString(position5.indexOf(Largest(position5)) + 97);
-      //code += Character.toString(position6.indexOf(Largest(position6)) + 97);
-      //code += Character.toString(position7.indexOf(Largest(position7)) + 97);
+      code += Character.toString(position6.indexOf(Largest(position6)) + 97);
+      code += Character.toString(position7.indexOf(Largest(position7)) + 97);
       input.close();
       return code;
 
@@ -79,7 +79,7 @@ public class Tester {
 
   public static int Smallest(ArrayList<Integer> arr) {
     int smallest = 26;
-    for(int i = 1; i < arr.size(); i++) {
+    for(int i = 0; i < arr.size(); i++) {
         if(arr.get(i) < smallest && arr.get(i) != 0) {
             smallest = arr.get(i);
         }
