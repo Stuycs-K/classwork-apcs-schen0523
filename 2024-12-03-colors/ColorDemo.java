@@ -32,7 +32,7 @@ public class ColorDemo {
   public static int RED = 31;
 
   public static void color(int foreground,int background){
-    System.out.print( "\u001b[" + foreground + ";" + (10+background) + "m.");
+    System.out.print( "\u001b[" + foreground + ";" + (10+background) + "m");
   }
 
   public static void color(int foreground, int background, int modifier){
