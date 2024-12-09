@@ -75,22 +75,23 @@ public abstract class Adventurer{
   }
 
   public int getHP(){
-      return HP;
+    return HP;
   }
 
   public int getmaxHP(){
-      return maxHP;
+    return maxHP;
   }
   public void setmaxHP(int newMax){
-        maxHP = newMax;
+     maxHP = newMax;
   }
 
   //Set Methods
   public void setHP(int health){
-      this.HP = health;
+    this.HP = health;
   }
 
   public void setName(String s){
-      this.name = s;
+    this.name = s;
   }
+  
 }
