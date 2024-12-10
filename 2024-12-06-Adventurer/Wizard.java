@@ -24,7 +24,7 @@ public class Wizard extends Adventurer {
   */
 
   public String getSpecialName() {
-    return "Mana";
+    return "mana";
   }
 
   //accessor methods
@@ -48,7 +48,7 @@ public class Wizard extends Adventurer {
     Random rand = new Random();
     int damage = (rand.nextInt(5) + 1)* 2;
     other.applyDamage(damage);
-    return this.getName() + " did " + damage + " damage to "+ other.getName();
+    return this.getName() + " set " + other.getName()+ " on fire and did " + damage + " damage to them";
   }
 
   //heal or buff the target adventurer
@@ -59,28 +59,30 @@ public class Wizard extends Adventurer {
     else {
         other.setHP(other.getHP() + 10);
     }
-    return this.getName() + " healed " + other.getName() + " for 10 HP.";
+    return this.getName() + " gave " + other.getName() + " a healing potion and they restored 10 HP";
   }
 
   //heal or buff self
   public String support() {
     if(getHP() + 10 > getmaxHP()) {
-        setHP(getmaxHP());
+      setHP(getmaxHP());
+      setSpecial(getSpecial() + 5);
     }
     else {
-        setHP(getHP() + 10);
+      setHP(getHP() + 10);
+      setSpecial(getSpecial() + 5);
     }
-    return getName() + " healed themselves for 10 HP.";
+    return getName() + " drank a healing potion and healed themselves for 10 HP";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
     if (mana < 10) {
-        return this.getName() + " didn't have enough rage.";
+      return this.getName() + " didn't have enough mana." + attack(other) + "instead";
     }
     other.applyDamage(20);
     this.setSpecial(this.getSpecial() - 10);
-    return this.getName() + " did 20 damage to " + other.getName() + " by using their special attack.";
+    return this.getName() + " casted a lightning bolt and did 20 damage to " + other.getName();
   }
 
 
