@@ -74,6 +74,7 @@ public class TriangleTester {
       return counter;
 
     } catch (FileNotFoundException ex) {
+      
       System.out.println("File not found");
       return 0;
     }
